@@ -6,6 +6,8 @@ description = "Rust port of pinyin-pro: Chinese to pinyin with tone, initials, f
 license = "MIT"
 repository = "https://github.com/argsno/pinyin-pro-rust"
 keywords = ["pinyin", "chinese", "hanzi"]
+# Raw dictionary sources stay in git only; the crate embeds generated tables.
+exclude = ["packages/", "scripts/", ".github/"]
 
 [lib]
 name = "pinyin_pro"
