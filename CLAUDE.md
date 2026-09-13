@@ -1,12 +1,13 @@
 # Repository Instructions
 
-## API Size
+## Verify
 
-When updating code that may affect the package API, build output, module structure, or bundle size, run:
+After changing anything, run:
 
 ```bash
-pnpm build
-pnpm size
+cargo test
+cargo clippy --all-targets
 ```
 
-The `pnpm size` command updates the API Size data in all generated documentation. Include those changes in the same update and do not edit the generated size tables manually.
+Keep zero warnings. `napi`/`wasm` feature code must stay
+compiling: `cargo check --features napi,wasm`.

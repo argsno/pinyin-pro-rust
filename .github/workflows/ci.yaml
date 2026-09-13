@@ -10,30 +10,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Set up Node 18
-        uses: actions/setup-node@v4
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
         with:
-          node-version: 18
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build
-        run: pnpm build
-
-      - name: Validate dictionary data
-        run: pnpm --filter @pinyin-pro/data test:validate && pnpm data:validate
-
-      - name: Run tests with coverage
-        run: pnpm test
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }} # 添加你的 Codecov token
-          slug: zh-lx/pinyin-pro
+          components: clippy, rustfmt
+      - name: Test
+        run: cargo test
+      - name: Clippy
+        run: cargo clippy --all-targets -- -D warnings
+      - name: Feature check
+        run: cargo check --features napi,wasm

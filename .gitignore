@@ -1,17 +1,6 @@
+target/
 node_modules
 coverage
 dist
-handle-data
-package-lock.json
 .DS_Store
 *.log
-
-# VitePress
-.vitepress/cache
-.vitepress/dist
-cache
-.temp
-
-# Documentation deployment artifacts
-packages/docs/zip
-packages/docs/dist.zip
