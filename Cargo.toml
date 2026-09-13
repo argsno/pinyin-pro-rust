@@ -4,7 +4,7 @@ version = "3.29.4"
 edition = "2021"
 description = "Rust port of pinyin-pro: Chinese to pinyin with tone, initials, finals, polyphone, matching and segmentation"
 license = "MIT"
-repository = "https://github.com/argsno/pinyin-pro"
+repository = "https://github.com/argsno/pinyin-pro-rust"
 keywords = ["pinyin", "chinese", "hanzi"]
 
 [lib]
